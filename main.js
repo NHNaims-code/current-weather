@@ -6,7 +6,8 @@
 
         const displayInfo = ()=> {
             const cityNameInput = document.getElementById('inputCity').value;
-            fetch('https://api.openweathermap.org/data/2.5/weather?q='+cityNameInput+'&appid=38d071a17b80e2c5f2652ccb1436bd32')
+            const cityName = cityNameInput || 'Dhaka'
+            fetch('https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid=38d071a17b80e2c5f2652ccb1436bd32')
             .then(e => e.json())
             .then(d => setInfo(d));
             const setInfo = d =>{
@@ -22,4 +23,7 @@
 
 
         }
+        // const cityNameInput = document.getElementById('inputCity').value;
+        displayInfo();
         document.getElementById('searchBtn').addEventListener('click', displayInfo);
+
